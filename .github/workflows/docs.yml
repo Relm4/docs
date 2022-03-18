@@ -1,0 +1,43 @@
+name: docs
+
+on:
+  push:
+  schedule:
+  - cron: '42 */12 * * *'
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-20.04
+    container:
+      image: ghcr.io/gtk-rs/gtk4-rs/gtk4:latest
+    name: build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+
+      # Install nightly Rust
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          override: true
+
+      # Install dependencies
+      - run: ./install_libadwaita.sh
+      - run: ./install_libpanel.sh
+
+      # Build the docs
+      - run: ./build_relm_docs.sh
+
+      # Fix SSH configuration of the container
+      - run: ./fix_ssh.sh
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: Relm4/website
+          publish_dir: ./docs
+          keep_files: false
+          destination_dir: ./docs
