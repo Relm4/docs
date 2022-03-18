@@ -42,7 +42,7 @@ cargo clean --doc
 cargo update
 
 cd relm4-components
-cargo +nightly doc --all-features
+# cargo +nightly doc --all-features
 # -Z rustdoc-scrape-examples=examples
 
 cd ../relm4-macros
