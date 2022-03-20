@@ -49,11 +49,11 @@ cd ../relm4-macros
 cargo +nightly doc --all-features
 # -Z rustdoc-scrape-examples=examples
 
-cd ..
+cd ../relm4
 cargo +nightly doc --all-features
 # -Z rustdoc-scrape-examples=examples
 
-cd ..
+cd ../..
 
 mv tmp/target/doc/* docs/next
 
