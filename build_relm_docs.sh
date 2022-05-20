@@ -40,6 +40,8 @@ git checkout next
 cargo clean --doc
 cargo update
 
+find -name "lib.rs" -exec ../append_timestamp.sh {} +
+
 export RUSTDOCFLAGS="--cfg dox"
 
 cd relm4-components
