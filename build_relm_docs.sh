@@ -37,8 +37,6 @@ cd tmp
 git stash
 git checkout next
 
-find -name "lib.rs" -exec ../append_doc_feature.sh {} +
-
 cargo clean --doc
 cargo update
 
