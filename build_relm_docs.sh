@@ -42,16 +42,18 @@ find -name "lib.rs" -exec ../append_doc_feature.sh {} +
 cargo clean --doc
 cargo update
 
+export RUSTDOCFLAGS="--cfg dox"
+
 cd relm4-components
 # cargo +nightly doc --all-features
 # -Z rustdoc-scrape-examples=examples
 
 cd ../relm4-macros
-cargo +nightly doc --all-features -- --cfg dox
+cargo +nightly doc --all-features
 # -Z rustdoc-scrape-examples=examples
 
 cd ../relm4
-cargo +nightly doc --all-features -Z rustdoc-scrape-examples=examples -- --cfg dox
+cargo +nightly doc --all-features -Z rustdoc-scrape-examples=examples
 
 cd ../..
 
