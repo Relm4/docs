@@ -47,11 +47,11 @@ cd relm4-components
 # -Z rustdoc-scrape-examples=examples
 
 cd ../relm4-macros
-cargo +nightly doc --all-features --cfg dox
+cargo +nightly doc --all-features -- --cfg dox
 # -Z rustdoc-scrape-examples=examples
 
 cd ../relm4
-cargo +nightly doc --all-features -Z rustdoc-scrape-examples=examples --cfg dox
+cargo +nightly doc --all-features -Z rustdoc-scrape-examples=examples -- --cfg dox
 
 cd ../..
 
