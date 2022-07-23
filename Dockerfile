@@ -24,6 +24,6 @@ RUN rm -rf libadwaita
 RUN git clone --depth 1 https://gitlab.gnome.org/chergert/libpanel.git
 WORKDIR libpanel
 RUN meson setup builddir --prefix=/usr -Dintrospection=disabled -Dvapi=false
-RUN meson install -C _uild
+RUN meson install -C builddir
 WORKDIR /
 RUN rm -rf libpanel
