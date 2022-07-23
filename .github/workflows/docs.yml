@@ -7,9 +7,9 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     container:
-      image: ghcr.io/gtk-rs/gtk4-rs/gtk4:latest
+      image: ghcr.io/relm4/relm4/docs:latest
     name: build
     steps:
       - uses: actions/checkout@v2
@@ -22,10 +22,6 @@ jobs:
           profile: minimal
           toolchain: nightly
           override: true
-
-      # Install dependencies
-      - run: ./install_libadwaita.sh
-      - run: ./install_libpanel.sh
 
       # Build the docs
       - run: ./build_relm_docs.sh
