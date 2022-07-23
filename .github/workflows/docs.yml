@@ -24,7 +24,6 @@ jobs:
           override: true
 
       # Install dependencies
-      - run: ./install_libadwaita.sh
       - run: ./install_libpanel.sh
 
       # Build the docs
