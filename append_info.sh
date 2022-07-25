@@ -9,15 +9,21 @@ do
   CRATE=`grep ^name $CARGO_TOML | sed 's/name\s*=\s*"//' | sed 's/"//'`
 
   if [[ $STABLE == 1 ]]; then
+    BOOK_LINK="stable"
     LINK="[Docs of the **upcoming version**](/docs/next/$CRATE)"
   else
+    BOOK_LINK="next"
     LINK="[**Stable docs**](/docs/stable/$CRATE)"
   fi
+
+  LINKS="[GitHub](https://github.com/Relm4/relm4) | [Website](https://relm4.org) | [Book](https://relm4.org/book/$BOOK_LINK) | [Blog](https://relm4.org/blog)"
 
   TEXT="//!
 //! $LINK
 //!
-//! $TIMESTAMP"
+//! $TIMESTAMP
+//!
+//! $LINKS"
 
   # Escape text
   TEXT=`printf "%q" "$TEXT" | sed "s/$'//"`
