@@ -10,10 +10,10 @@ do
 
   if [[ $STABLE == 1 ]]; then
     BOOK_LINK="stable"
-    LINK="[Docs of the **upcoming version**](/docs/next/$CRATE)"
+    LINK="Version: **\`stable\`**. Visit the docs of the **upcoming version** [here](/docs/next/$CRATE)."
   else
     BOOK_LINK="next"
-    LINK="[**Stable docs**](/docs/stable/$CRATE)"
+    LINK="Version: **\`nightly\`**. Visit the **stable docs** [here](/docs/stable/$CRATE)."
   fi
 
   LINKS="[GitHub](https://github.com/Relm4/relm4) | [Website](https://relm4.org) | [Book](https://relm4.org/book/$BOOK_LINK) | [Blog](https://relm4.org/blog)"
@@ -26,7 +26,9 @@ do
 //! $LINKS"
 
   # Escape text
-  TEXT=`printf "%q" "$TEXT" | sed "s/$'//"`
+  printf -v TEXT "%q" "$TEXT"
+  TEXT=${TEXT#\$\'}
+  TEXT=${TEXT%\'}
   TEXT=`echo "${TEXT//\//\\\/}"`
 
   # Find the first free line after "//!" comments and insert the text there
