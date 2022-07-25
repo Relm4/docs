@@ -13,7 +13,9 @@ cd tmp
 git clone https://github.com/AaronErhardt/relm4 ./
 
 # Stable docs
+export STABLE=1
 find -name "lib.rs" -exec ../append_doc_feature.sh {} +
+find -name "lib.rs" -exec ../append_info.sh {} +
 
 cargo update
 
@@ -32,6 +34,7 @@ cd ..
 mv tmp/target/doc/* docs/stable
 
 # Unstable docs
+export STABLE=0
 cd tmp
 
 git stash
@@ -40,7 +43,7 @@ git checkout next
 cargo clean --doc
 cargo update
 
-find -name "lib.rs" -exec ../append_timestamp.sh {} +
+find -name "lib.rs" -exec ../append_info.sh {} +
 
 export RUSTDOCFLAGS="--cfg dox"
 
