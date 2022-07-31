@@ -11,6 +11,7 @@ mkdir tmp
 cd tmp
 
 git clone https://github.com/AaronErhardt/relm4 ./
+git checkout stable
 
 # Stable docs
 export STABLE=1
@@ -38,7 +39,7 @@ export STABLE=0
 cd tmp
 
 git stash
-git checkout next
+git checkout main
 
 cargo clean --doc
 cargo update
