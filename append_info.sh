@@ -31,6 +31,11 @@ do
   TEXT=${TEXT%\'}
   TEXT=`echo "${TEXT//\//\\\/}"`
 
-  # Find the first free line after "//!" comments and insert the text there
-  sed "0,/^[[:space:]]*$/ s/^[[:space:]]*$/$TEXT\n/" $var -i
+  FIRST_WORD=`awk '{print $1; exit}' $var`
+
+  # Only edit files that have a doc comment (//!) at the start.
+  if [[ "//!" == $FIRST_WORD ]]; then
+    # Find the first free line after "//!" comments and insert the text there
+    sed "0,/^[[:space:]]*$/ s/^[[:space:]]*$/$TEXT\n/" $var -i
+  fi
 done
