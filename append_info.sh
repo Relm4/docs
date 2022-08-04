@@ -37,5 +37,8 @@ do
   if [[ "//!" == $FIRST_WORD ]]; then
     # Find the first free line after "//!" comments and insert the text there
     sed "0,/^[[:space:]]*$/ s/^[[:space:]]*$/$TEXT\n/" $var -i
+
+    echo " > DEBUG INFO"
+    head $var
   fi
 done
