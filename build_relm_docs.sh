@@ -15,8 +15,8 @@ git checkout stable
 
 # Stable docs
 export STABLE=1
-find -name "lib.rs" -exec ../append_doc_feature.sh {} +
 find -name "lib.rs" -exec ../append_info.sh {} +
+find -name "lib.rs" -exec ../append_doc_feature.sh {} +
 
 cargo update
 
