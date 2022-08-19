@@ -16,10 +16,30 @@ do
     LINK="Version: **\`nightly\`**. Visit the **stable docs** [here](/docs/stable/$CRATE)."
   fi
 
-  LINKS="[GitHub](https://github.com/Relm4/relm4) | [Website](https://relm4.org) | [Book](https://relm4.org/book/$BOOK_LINK) | [Blog](https://relm4.org/blog)"
+  CRATES="
+Docs of related crates:
+  [relm4](../relm4)
+| [relm4-macros](../relm4_macros)
+| [relm4-components](../relm4_components)
+| [gtk4-rs](https://gtk-rs.org/gtk4-rs/git/docs)
+| [gtk-rs-core](https://gtk-rs.org/gtk-rs-core/git/docs)
+| [libadwaita-rs](https://world.pages.gitlab.gnome.org/Rust/libadwaita-rs/git/docs/libadwaita)
+| [libpanel-rs](https://world.pages.gitlab.gnome.org/Rust/libpanel-rs/git/docs/libpanel)"
+
+  LINKS="
+  [GitHub](https://github.com/Relm4/Relm4)
+| [Website](https://relm4.org)
+| [Book](https://relm4.org/book/$BOOK_LINK)
+| [Blog](https://relm4.org/blog)"
+
+  # Remove newlines
+  CRATES=`echo $CRATES`
+  LINKS=`echo $LINKS`
 
   TEXT="//!
 //! $LINK
+//!
+//! $CRATES
 //!
 //! $TIMESTAMP
 //!
