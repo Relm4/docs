@@ -1,7 +1,7 @@
 FROM ghcr.io/gtk-rs/gtk4-rs/gtk4:latest
 
 # Set mold as default linker
-RUN dnf install mold
+RUN dnf install mold -y
 RUN ln -sf $(which mold) $(realpath /usr/bin/ld)
 
 # Build Libpanel
