@@ -34,7 +34,5 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           external_repository: Relm4/website
-          force_orphan: true
           publish_dir: ./docs
-          keep_files: false
           destination_dir: ./docs
