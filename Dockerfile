@@ -1,8 +1,8 @@
 FROM ghcr.io/gtk-rs/gtk4-rs/gtk4:latest
 
-# Set mold as default linker
-RUN dnf install mold -y
-RUN ln -sf $(which mold) $(realpath /usr/bin/ld)
+# Set mold as default linker (temporarily disabled)
+# RUN dnf install mold -y
+# RUN ln -sf $(which mold) $(realpath /usr/bin/ld)
 
 # Build libpanel
 RUN git clone https://gitlab.gnome.org/chergert/libpanel.git && \
