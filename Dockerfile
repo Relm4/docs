@@ -13,4 +13,4 @@ FROM ghcr.io/gtk-rs/gtk4-rs/gtk4:latest
 #    rm -rf libpanel
 
 # Temporary workaround: Install libpanel with dnf
-RUN dnf install libpanel-devel -y
+RUN dnf install libpanel-devel openssl-devel -y
