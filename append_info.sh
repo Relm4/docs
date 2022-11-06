@@ -4,46 +4,7 @@ set -e
 
 for var in "$@"
 do
-  TIMESTAMP=`date -u '+*This document was built at %A %B %d, %H:%M UTC.*'`
-  CARGO_TOML=`echo $var | sed "s/src\/lib.rs/Cargo.toml/"`
-  CRATE=`grep ^name $CARGO_TOML | head -1 | sed 's/name\s*=\s*"//' | sed 's/"//'`
-
-  if [[ $STABLE == 1 ]]; then
-    BOOK_LINK="stable"
-    LINK="Version: **\`stable\`**. Visit the docs of the **upcoming version** [here](/docs/next/$CRATE)."
-  else
-    BOOK_LINK="next"
-    LINK="Version: **\`nightly\`**. Visit the **stable docs** [here](/docs/stable/$CRATE)."
-  fi
-
-  CRATES="
-Docs of related crates:
-  [relm4](../relm4)
-| [relm4-macros](../relm4_macros)
-| [relm4-components](../relm4_components)
-| [gtk4-rs](https://gtk-rs.org/gtk4-rs/git/docs)
-| [gtk-rs-core](https://gtk-rs.org/gtk-rs-core/git/docs)
-| [libadwaita-rs](https://world.pages.gitlab.gnome.org/Rust/libadwaita-rs/git/docs/libadwaita)
-| [libpanel-rs](https://world.pages.gitlab.gnome.org/Rust/libpanel-rs/git/docs/libpanel)"
-
-  LINKS="
-  [GitHub](https://github.com/Relm4/Relm4)
-| [Website](https://relm4.org)
-| [Book](https://relm4.org/book/$BOOK_LINK)
-| [Blog](https://relm4.org/blog)"
-
-  # Remove newlines
-  CRATES=`echo $CRATES`
-  LINKS=`echo $LINKS`
-
-  TEXT="//!
-//! $LINK
-//!
-//! $CRATES
-//!
-//! $TIMESTAMP
-//!
-//! $LINKS"
+  TEXT="" # Will be used to announce deprecation warning of the docs
 
   # Escape text
   printf -v TEXT "%q" "$TEXT"
