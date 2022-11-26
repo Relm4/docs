@@ -4,7 +4,7 @@ set -e
 
 for var in "$@"
 do
-  TEXT="" # Will be used to announce deprecation warning of the docs
+  TEXT=" " # Will be used to announce deprecation warning of the docs
 
   # Escape text
   printf -v TEXT "%q" "$TEXT"
