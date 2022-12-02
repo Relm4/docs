@@ -12,16 +12,14 @@ jobs:
       image: ghcr.io/relm4/relm4/docs:latest
     name: build
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: main
 
       # Install nightly Rust
-      - uses: actions-rs/toolchain@v1
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: nightly
-          override: true
 
       # Build the docs
       - run: ./build_relm_docs.sh
