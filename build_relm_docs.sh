@@ -21,14 +21,13 @@ find -name "lib.rs" -exec ../append_doc_feature.sh {} +
 cargo update
 
 cd relm4-components
-cargo +nightly doc --all-features -Z rustdoc-scrape-examples=examples
+cargo +nightly doc --all-features -Z rustdoc-scrape-examples
 
 cd ../relm4-macros
-cargo +nightly doc --all-features
-# -Z rustdoc-scrape-examples=examples
+cargo +nightly doc --all-features -Z rustdoc-scrape-examples
 
 cd ..
-cargo +nightly doc --all-features -Z rustdoc-scrape-examples=examples
+cargo +nightly doc --all-features -Z rustdoc-scrape-examples
 
 cd ..
 
@@ -48,7 +47,7 @@ find -name "lib.rs" -exec ../append_info.sh {} +
 
 export RUSTDOCFLAGS="--cfg dox"
 
-cargo +nightly doc --all-features -Z rustdoc-scrape-examples=examples
+cargo +nightly doc --all-features -Z rustdoc-scrape-examples
 
 cd ..
 
