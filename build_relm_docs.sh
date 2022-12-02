@@ -24,7 +24,8 @@ cd relm4-components
 cargo +nightly doc --all-features -Z rustdoc-scrape-examples
 
 cd ../relm4-macros
-cargo +nightly doc --all-features -Z rustdoc-scrape-examples
+cargo +nightly doc --all-features
+# -Z rustdoc-scrape-examples
 
 cd ..
 cargo +nightly doc --all-features -Z rustdoc-scrape-examples
