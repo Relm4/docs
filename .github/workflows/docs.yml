@@ -12,7 +12,7 @@ jobs:
       image: ghcr.io/relm4/relm4/docs:latest
     name: build
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: main
 
