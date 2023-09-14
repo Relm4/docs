@@ -2,8 +2,8 @@ name: docs
 
 on:
   push:
-  schedule:
-  - cron: '42 */12 * * *'
+#  schedule:
+#  - cron: '42 */12 * * *'
 
 jobs:
   build-deploy:
