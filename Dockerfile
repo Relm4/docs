@@ -12,5 +12,7 @@ RUN git clone https://gitlab.gnome.org/chergert/libpanel.git && \
     cd ../ && \
     rm -rf libpanel
 
+RUN dnf install openssl-devel -y
+
 # Temporary workaround: Install libpanel with dnf
-# RUN dnf install libpanel-devel openssl-devel -y
+# RUN dnf install libpanel-devel -y
