@@ -1,6 +1,4 @@
-#!/bin/bash
-
-set -e
+#!/usr/bin/env -S bash -euo pipefail
 
 for var in "$@"
 do

@@ -1,7 +1,4 @@
-#!/bin/sh
-
-# Return on error
-set -e
+#!/usr/bin/env -S bash -euo pipefail
 
 mkdir docs
 mkdir docs/stable
