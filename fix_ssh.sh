@@ -1,7 +1,4 @@
-#!/bin/bash
-
-# Return on error
-set -e
+#!/usr/bin/env -S bash -euo pipefail
 
 # Overwrite global SSH configuration
 echo "Host *
